@@ -1,0 +1,9 @@
+layout: "./dust_temp.html"
+filename: "./index.html"
+data:
+  name: "root"
+  anotherName: "root2"
+  A:
+    name: "Albert"
+    B:
+      name: "Bob"

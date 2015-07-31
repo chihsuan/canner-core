@@ -1,0 +1,14 @@
+layout: "./swig_temp.html"
+filename: "./index.html"
+data:
+  people:
+    -
+      name: "Paul"
+      age: 28
+    -
+      name: "Jane"
+      age: 26
+    -
+      name: "Jimmy"
+      age: 45
+  title: "Basic Example"

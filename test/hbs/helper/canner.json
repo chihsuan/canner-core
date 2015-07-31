@@ -1,0 +1,13 @@
+{
+	"layout": "index.hbs",
+	"filename": "index.html",
+	"helpers": "helper.js",
+	"data": {
+		"title": "test",
+		"items": [
+	    {"name": "Handlebars", "emotion": "love"},
+	    {"name": "Mustache", "emotion": "enjoy"},
+	    {"name": "Ember", "emotion": "want to learn"}
+	  ]
+	}
+}

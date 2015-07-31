@@ -1,0 +1,15 @@
+layout: "index.hbs"
+filename: "index.html"
+helpers: "helper.js"
+data:
+  title: "test"
+  items:
+    -
+      name: "Yaml"
+      emotion: "love"
+    -
+      name: "Yml"
+      emotion: "enjoy"
+    -
+      name: "Canner yaml"
+      emotion: "want to learn"

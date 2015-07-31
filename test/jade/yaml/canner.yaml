@@ -1,0 +1,5 @@
+layout: "./index.jade"
+filename: "./index.html"
+data:
+  title: "this is content title"
+  content: "testing content"
