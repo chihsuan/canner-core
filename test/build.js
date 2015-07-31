@@ -3,6 +3,7 @@ var assert = require('assert');
 var Q = require('q');
 var path= require('path');
 var exec = require('child_process').exec;
+var jsdom = require("jsdom");
 
 var canner = require('../index');
 
@@ -268,6 +269,35 @@ describe('build using object', function () {
 			var result = fs.readFileSync(__dirname + '/result/hbs_data_input.html', {encoding: 'utf8'}).replace(/\s+/g, '');
 
 			assert.equal(html[0].replace(/\s+/g, ''), result);
+			done();
+		}, function (err) {
+			console.log(err);
+		})
+	})
+
+	it('should run beforeSave', function (done) {
+		var output= __dirname + '/hbs/original';
+		var obj= JSON.parse(fs.readFileSync(__dirname+'/hbs/original/canner.json', 'utf8'));
+		canner.build(obj, 
+			{
+				cwd: __dirname + '/hbs/original',
+				output: output, 
+				data: {
+					"title": "wwwy3y3",
+					"items": "item wwwy3y3"
+				}, 
+				beforeSave: function (build, ok) {
+					var window = jsdom.jsdom(build).defaultView;
+					jsdom.jQueryify(window, "http://code.jquery.com/jquery-2.1.1.js", function () {
+					  window.$("body").append('<div class="testing">Hello World, It works</div>');
+					  ok(window.document.documentElement.outerHTML);
+					});
+				}
+			})
+		.done(function () {
+			var result = fs.readFileSync(__dirname + '/result/hbs_jsdom.html', {encoding: 'utf8'}).replace(/\s+/g, '');
+			var html= fs.readFileSync(path.resolve(output, './index.html'), 'utf8').replace(/\s+/g, '');
+			assert.equal(html, result);
 			done();
 		}, function (err) {
 			console.log(err);
