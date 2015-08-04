@@ -1,0 +1,83 @@
+{
+  "category": {
+    "path": "./opendata/category",
+    "items": {
+      "opendata": {
+        "description": "this is a opendata category",
+        "others": "you can put your other variables here"
+      },
+      "visualization": {
+        "description": "this is a visualization category",
+        "others": "you can put your other variables here"
+      }
+    }
+  },
+  "tags": {
+    "path": "./opendata/tags/",
+    "items": {
+      "weather": {
+        "description": "this is a weather tag",
+        "others": "you can put your other variables here"
+      },
+      "blog": {
+        "description": "this is a blog tag",
+        "others": "you can put your other variables here"
+      },
+      "health": {
+        "description": "this is a health tag",
+        "others": "you can put your other variables here"
+      },
+      "taiwan": {
+        "description": "this is a taiwan tag",
+        "others": "you can put your other variables here",
+        "others2": "you can put your other variables here"
+      }
+    }
+  },
+  "author": {
+    "path": "./opendata/author",
+    "items": {
+      "taiwanstat": {
+        "email": "test@gmail.com",
+        "nickname": "taiwanstat"
+      },
+      "chilijung": {
+        "email": "chilijung@test.com",
+        "nickname": "chilijung"
+      }
+    }
+  },
+  "post_settings": {
+    "layout": "./blog/post.hbs",
+    "path": "./blog/opendata/post/"
+  },
+  "posts": [{
+    "title": "This is a test post",
+    "date": "2015/08/03 22:07:39",
+    "category": ["opendata", "visualization"],
+    "tags": ["taiwan", "health"],
+    "cover": "http://i.imgur.com/o6llC95.jpg",
+    "content": "./blog/test_post.md",
+    "url_name": "test-post",
+    "author": "taiwanstat"
+  },{
+    "title": "This is a test post 2",
+    "date": "2015/08/04 22:07:39",
+    "category": ["opendata"],
+    "tags": ["weather", "health"],
+    "cover": "http://i.imgur.com/o6llC95.jpg",
+    "content": "./blog/test_post2.md",
+    "url_name": "test-post2",
+    "author": "chiiljung"
+  },{
+    "title": "This is a test post 3",
+    "date": "2015/07/04 22:07:39",
+    "category": ["opendata"],
+    "tags": ["weather", "blog"],
+    "cover": "http://i.imgur.com/o6llC95.jpg",
+    "content": "./blog/test_post3.md",
+    "url_name": "test-post3",
+    "author": "chiiljung"
+  }]
+
+}

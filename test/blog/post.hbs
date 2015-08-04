@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <title>{{title}}</title>
+  </head>
+
+  <body>
+    <div>
+      <h1>{{title}}</h1>
+      <h3> Tags </h3>
+      <ul>
+        {{#each tags}}
+          <li>{{this}}</li>
+        {{/each}}
+      </ul>
+    </div>
+
+    <p>{{date}}</p>
+
+    <div data-markdown="{{content}}">
+    </div>
+  </body>
+</html>

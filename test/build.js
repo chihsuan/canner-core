@@ -4,6 +4,7 @@ var Q = require('q');
 var path = require('path');
 var exec = require('child_process').exec;
 var jsdom = require("jsdom");
+var _= require('lodash');
 
 var canner = require('../index');
 
@@ -395,4 +396,66 @@ describe('build using object', function() {
         console.log(err);
       })
   })
+
+
+  it('should only build the datas pass filter function, using blog datas', function(done) {
+    var obj = JSON.parse(fs.readFileSync(__dirname + '/blog/blog-multi.json', 'utf8'));
+    var posts = obj.posts;
+    var post_layout = obj.post_settings.layout;
+    var post_root_path = obj.post_settings.path;
+
+    if(!_.isArray(posts))
+        posts = [posts];
+
+    posts = _.map(posts, function(post) {
+        var post_date = post.date;
+        var post_url = post.url_name + '.html';
+        var file_path = generatePath(post_root_path, post_date, post_url);
+
+        var canner_obj = {
+          layout: post_layout,
+          filename: file_path,
+          data: post
+        };
+
+        return canner_obj;
+      })
+
+
+    canner.build(posts, {
+        cwd: __dirname ,
+        returnContent: true,
+        filter: function (row) {
+          return row.data.url_name== 'test-post';
+        }
+      })
+      .done(function(html) {
+        var result = fs.readFileSync(__dirname + '/blog/opendata/post/2015/08/03/test-post.html', {
+          encoding: 'utf8'
+        }).replace(/\s+/g, '');
+
+        assert.equal(html[0].replace(/\s+/g, ''), result);
+        done();
+      }, function(err) {
+        console.log(err);
+      })
+  })
 })
+
+
+function generatePath(root, date, url_name) {
+
+  // building the post path
+  var date_reg = /(\d{4}\/\d{2}\/\d{2})\s+(\d{2}):(\d{2}):(\d{2})/g;
+  var parse_d = date_reg.exec(date)
+
+  if(parse_d) {
+    var day = parse_d[1];
+
+    var gen_path = path.join(root, day, url_name)
+    return gen_path;
+  }else {
+    // date parse error
+    throw new Error('Please check your date strings, format should be like "2015/08/03 22:07:39"')
+  }
+}
