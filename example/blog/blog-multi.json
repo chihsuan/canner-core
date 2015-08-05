@@ -48,8 +48,8 @@
     }
   },
   "post_settings": {
-    "layout": "./blog/post.hbs",
-    "path": "./blog/opendata/post/"
+    "layout": "./post.hbs",
+    "path": "./opendata/post/"
   },
   "posts": [{
     "title": "This is a test post",
@@ -57,7 +57,7 @@
     "category": ["opendata", "visualization"],
     "tags": ["taiwan", "health"],
     "cover": "http://i.imgur.com/o6llC95.jpg",
-    "content": "./blog/test_post.md",
+    "content": "./test_post.md",
     "url_name": "test-post",
     "author": "taiwanstat"
   },{
@@ -66,7 +66,7 @@
     "category": ["opendata"],
     "tags": ["weather", "health"],
     "cover": "http://i.imgur.com/o6llC95.jpg",
-    "content": "./blog/test_post2.md",
+    "content": "./test_post2.md",
     "url_name": "test-post2",
     "author": "chiiljung"
   },{
@@ -75,7 +75,7 @@
     "category": ["opendata"],
     "tags": ["weather", "blog"],
     "cover": "http://i.imgur.com/o6llC95.jpg",
-    "content": "./blog/test_post3.md",
+    "content": "./test_post3.md",
     "url_name": "test-post3",
     "author": "chiiljung"
   }]

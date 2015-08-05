@@ -23,6 +23,9 @@ canner.watch(posts, {
 ### cwd
 你資料中如果有用相對路徑, 那都會從`cwd`這個路徑變數去出發
 
+### output
+output是build的路徑
+
 ### serve
 你要watch哪個資料夾
 
@@ -62,7 +65,7 @@ function loadJson () {
 ```
 
 ## file operation filters
-file operation filters 每次有檔案更動的時候(新增, 刪除, 更改), 我們就會call這個filter, 讓使用者可以自己比較資料中每一筆row跟變動檔案的filename跟stat, 在這個filter return true或不回傳東西, 我們才會build, return false我們就不build
+file operation filters 每次有檔案更動的時候(新增, 刪除, 更改), 我們就會call這個filter, 讓使用者可以自己比較資料中每一筆row跟變動檔案的filename跟stat, 在這個filter return true, 我們才會build, return false或不回傳東西, 我們就不build
 
 ### example usage
 * 例如你希望檔案大小大於10mb, 才build, 那你可以看stat去做return

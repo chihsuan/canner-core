@@ -7,20 +7,24 @@ var _= require('lodash');
 var canner = require('../');
 
 posts= loadJson();
+var cwd= __dirname + '/blog';
 canner.watch(posts, {
-    cwd: __dirname ,
+    cwd: cwd,
+    output: cwd,
     serve: __dirname + '/blog',
-    returnContent: true,
+    /*returnContent: true,
     watchCallback: function (html) {
       console.log(html)
-    },
+    },*/
     reloader: function () {
       return loadJson();
     }, 
     changeFilter: function (row, f, curr, prev) {
       // if md equals, return true
       if(path.extname(f)=='.md'){
-        return (f==path.resolve(__dirname, row.data.content))
+        return (f==path.resolve(cwd, row.data.content));
+      }else{
+        return true;
       }
     }
   })
