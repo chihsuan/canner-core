@@ -1,3 +1,3 @@
 module.exports= function (hbs) {
-	hbs.registerPartial('person', '<hello> this is a person </hello>');
+	hbs.registerPartial('person', '<div> this is a person </div>');
 }
