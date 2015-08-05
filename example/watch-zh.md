@@ -23,6 +23,9 @@ canner.watch(posts, {
 ### cwd
 你資料中如果有用相對路徑, 那都會從`cwd`這個路徑變數去出發
 
+### localhost
+Boolean, 看localhost要不要打開
+
 ### output
 output是build的路徑
 
