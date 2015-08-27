@@ -440,6 +440,29 @@ describe('build using object', function() {
         console.log(err);
       })
   })
+
+
+  it('should pass hbs options', function(done) {
+    var obj = JSON.parse(fs.readFileSync(__dirname + '/hbs/original/canner.json', 'utf8'));
+    canner.build(obj, {
+        cwd: __dirname + '/hbs/original',
+        output: __dirname + '/hbs/original',
+        data: {
+          "title": "wwwy3y3",
+          "items": "<br>wwwy3y3<br>"
+        },
+        hbs: {
+          noEscape: true
+        },
+        returnContent: true
+      })
+      .done(function(html) {
+        assert.notEqual(html[0].indexOf('<br>'), -1);
+        done();
+      }, function(err) {
+        console.log(err);
+      })
+  })
 })
 
 
