@@ -27,7 +27,7 @@ exports.init = function(dir, generator) {
  *	@param {object} options - options
  */
 exports.build = function(dir, options) {
-  return build.folder(dir, options, false)
+  return build.folder(dir, options || {}, false)
 }
 
 /*
@@ -37,7 +37,7 @@ exports.build = function(dir, options) {
  *	@param {object} options - options
  */
 exports.watch = function(dir, options) {
-  return build.folder(dir, options, true)
+  return build.folder(dir, options || {}, true)
 }
 
 /*
