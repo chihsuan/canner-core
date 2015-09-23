@@ -5,10 +5,9 @@ var allin_html = require('allin');
 var path = require('path');
 var Q = require('q');
 
-var build = require('./lib/build');
-var init = require('./lib/init');
-var get = require('./lib/get');
-var read = require('./lib/read');
+// initialize a canner instance
+var CannerInstance= require('./lib/instance');
+var canner= new CannerInstance();
 
 /*
  *	Init
@@ -17,7 +16,7 @@ var read = require('./lib/read');
  *	@param {string} generator - Inital generate the generator that you are finding
  */
 exports.init = function(dir, generator) {
-  return init(dir, generator);
+  return canner.init(dir, generator)
 }
 
 /*
@@ -27,7 +26,7 @@ exports.init = function(dir, generator) {
  *	@param {object} options - options
  */
 exports.build = function(dir, options) {
-  return build.folder(dir, options || {}, false)
+  return canner.build(dir, options || {}, false)
 }
 
 /*
@@ -37,7 +36,24 @@ exports.build = function(dir, options) {
  *	@param {object} options - options
  */
 exports.watch = function(dir, options) {
-  return build.folder(dir, options || {}, true)
+  return canner.build(dir, options || {}, true)
+}
+
+
+/*
+ * read
+ * read a file path
+ * @param {string} can - can name, e.g., sample-can
+ * @param {string} filePath - file path you want to read
+ */
+
+exports.read = function(can, filePath) {
+  return canner.read(can, filePath);
+}
+
+// read stream
+exports.createReadStream= function (can, filePath) {
+  return canner.createReadStream(can, filePath);
 }
 
 /*
@@ -70,15 +86,4 @@ exports.allin = function(htmlfile, options) {
       fileSave(path.resolve(path.join(process.cwd(), output, filename)))
         .write(all);
     });
-}
-
-/*
- * read
- * read a file path
- * @param {string} can - can name, e.g., sample-can
- * @param {string} filePath - file path you want to read
- */
-
-exports.read = function(can, filePath) {
-  return read(can, filePath);
 }
