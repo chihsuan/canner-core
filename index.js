@@ -16,7 +16,7 @@ var canner= new CannerInstance();
  *	@param {string} generator - Inital generate the generator that you are finding
  */
 exports.init = function(dir, generator) {
-  return canner.init(dir, generator)
+  return canner.init(dir, generator);
 }
 
 /*
@@ -36,7 +36,7 @@ exports.build = function(dir, options) {
  *	@param {object} options - options
  */
 exports.watch = function(dir, options) {
-  return canner.build(dir, options || {}, true)
+  return canner.build(dir, options || {}, true);
 }
 
 
