@@ -26,7 +26,7 @@ exports.init = function(dir, generator) {
  *	@param {object} options - options
  */
 exports.build = function(dir, options) {
-  return canner.build(dir, options || {}, false)
+  return canner.build(dir, options || {}, false);
 }
 
 /*

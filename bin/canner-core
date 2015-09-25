@@ -13,9 +13,8 @@ var util = require('util');
 
 var pkg = require('../package.json');
 
-var build = require('../lib/build');
-var init = require('../lib/init');
-var get = require('../lib/get');
+var build = require('../lib/api/build');
+var init = require('../lib/api/init');
 
 var printErr = function(err) {
   console.log(chalk.red(err));
@@ -63,7 +62,7 @@ prog
   .option('-e, --engine <template engine>', 'Choose a template engine. Default engine "handlebars"')
   .option('-p, --port <port number>', 'Port which your local server start.')
   .action(function(dir) {
-    build.folder(dir, prog.args[1], false)
+    build(dir, prog.args[1], false)
       .catch(function(err) {
         stage.error(err);
       })
@@ -79,7 +78,7 @@ prog
   .option('-e, --engine <template engine>', 'Choose a template engine. Default engine "handlebars"')
   .option('-p, --port <port number>', 'Port which your local server start.')
   .action(function(dir) {
-    build.folder(dir, prog.args[1], true)
+    build(dir, prog.args[1], true)
       .catch(function(err) {
         stage.error(err);
       })
