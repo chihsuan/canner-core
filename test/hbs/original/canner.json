@@ -2,7 +2,7 @@
 	"layout": "./index.hbs",
 	"filename": "./index.html",
 	"data": {
-		"title": "test",
+		"title": "test 123 123",
 		"items": "item test"
 	}
 }
