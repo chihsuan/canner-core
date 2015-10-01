@@ -119,10 +119,11 @@ prog
 
 prog
   .command('create [hbs_template]')
-  .description('create a canner.json from hbs template')
+  .description('create a canner.json from a hbs template')
   .usage('<hbs_template, default value: "index.hbs">')
   .option('-o, --output <directory>', 'Path to output directory, defaults to current directory')
   .option('-p, --print', 'print data')
+  .option('-e, --extend <canner_json>', 'extend a exist canner.json from a new hbs template')
   .action(function(hbs, options) {
     var hbsFile = hbs ? hbs : './index.hbs';
     var hbsPath = path.resolve(process.cwd(), hbsFile);
