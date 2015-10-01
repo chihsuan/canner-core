@@ -16,6 +16,7 @@ var core = require('../index')
 var build = core.build;
 var init = core.init;
 var watch = core.watch;
+var extract = core.extract;
 
 var printErr = function(err) {
   console.log(chalk.red(err));
@@ -114,6 +115,21 @@ prog
       fileSave(path.resolve(path.join(process.cwd(), output, filename)))
         .write(all);
     });
+  });
+
+prog
+  .command('extract [hbs_template]')
+  .description('initialize a canner.json from hbs template')
+  .usage('<hbs_template, default value: "index.hbs">')
+  .option('-o, --output <directory>', 'Path to output directory, defaults to current directory')
+  .option('-p, --print', 'print data')
+  .action(function(hbs, options) {
+    var hbsFile = hbs ? hbs : './index.hbs';
+    var hbsPath = path.resolve(process.cwd(), hbsFile);
+    var dir = options.output ? path.resolve(process.cwd(), options.output) : './';
+    options.outputPath = path.join(dir, './canner.json');
+
+    extract(hbsPath, options);
   });
 
 // if empty
