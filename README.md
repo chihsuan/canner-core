@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/Canner/canner-core.svg?branch=master)](https://travis-ci.org/Canner/canner-core)
 
-## description
+## Description
 
 Core components of the [Canner](https://github.com/Canner/canner), including init, build, watch, allin and read API. 
 
@@ -174,3 +174,23 @@ canner.allin(htmlfile, options);
   * filename {String} Output html file name, default to output.html
   * output {String} Path to output directory, defaults to current directory
   * minifyall {Boolean}- minify css, html, js, images or not
+  
+### Create
+Create a canner.json from hbs_file
+
+return a promise 
+
+#### usage
+``` javascript
+canner.create(dir, options)
+   .then(function(){
+     // do your stuff
+   })
+   .catch(function(err){
+      // deal with error
+   });;
+```
+
+##### parameters
+* {string} dir - source to hbs_file, default ./index.hbs
+* {object} options
