@@ -89,11 +89,11 @@ exports.allin = function(htmlfile, options) {
 }
 
 /*
- *	extract
- *	Build a canner.json by extracting data from hbs.
+ *	create
+ *	Create a canner.json by extracting data from hbs.
  *	@param {string} dir - source to index.hbs, default ./index.hbs
  */
 
-exports.extract = function(dir, options) {
-  canner.extract(dir, options);
+exports.create = function(dir, options) {
+  canner.create(dir, options);
 }
