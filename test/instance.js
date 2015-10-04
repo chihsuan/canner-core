@@ -7,9 +7,9 @@ function noopSource () {
 	this.prefix= 'read from ';
 }
 
-noopSource.prototype.read = function(filePath) {
+noopSource.prototype.read = function(filePath, msg) {
 	// return file content
-	return Q(this.prefix+filePath);
+	return Q(this.prefix+filePath+': '+msg);
 };
 
 noopSource.prototype.createReadStream = function(filePath) {
@@ -34,10 +34,10 @@ var canner= new CannerInstance({ source: noopSource });
 
 describe('Instance', function () {
 	it('should read', function () {
-		return canner.read('test')
+		return canner.read('test', 'msg')
 
 		.then(function (content) {
-			return content.should.equal('read from test');
+			return content.should.equal('read from test: msg');
 		})
 	})
 
