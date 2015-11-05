@@ -53,7 +53,7 @@
     "jsdom": "^3.1.2",
     "hbs-extract": "^0.1.0",
     "http-server": "^0.8.0",
-    "hbs-helper": "^0.0.3"
+    "hbs-helper": "^0.0.4"
   },
   "devDependencies": {
     "mocha": "^2.1.0",
