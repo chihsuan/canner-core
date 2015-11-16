@@ -1,6 +1,6 @@
 {
   "name": "canner-core",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "description": "A static webpage generator based on template engines, which aimed to deal with the maintenance difficulty between data and webpages.",
   "main": "index.js",
   "bin": {
@@ -43,7 +43,7 @@
     "localdir": "^0.1.1",
     "lodash": "^2.4.2",
     "marked": "^0.3.2",
-    "md-attr": "^0.3.3",
+    "md-attr": "^0.3.5",
     "mustache": "^1.0.0",
     "node-stage": "^0.1.2",
     "npm": "^2.1.8",
