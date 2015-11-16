@@ -63,11 +63,12 @@ prog
   .option('-s, --serve <directory>', 'Path you want to start a local server. Default port 4000 for specific port use option -p')
   .option('-e, --engine <template engine>', 'Choose a template engine. Default engine "handlebars"')
   .option('-p, --port <port number>', 'Port which your local server start.')
+  .option('-m, --minify', 'Minify the result')
   .action(function(dir, options) {
     build(dir, options)
       .catch(function(err) {
         stage.error(err);
-      })
+      });
   });
 
 // watching docs from canner
@@ -79,6 +80,7 @@ prog
   .option('-s, --serve <directory>', 'Path you want to start a local server. Default port 4000 for specific port use option -p')
   .option('-e, --engine <template engine>', 'Choose a template engine. Default engine "handlebars"')
   .option('-p, --port <port number>', 'Port which your local server start.')
+  .option('-m, --minify', 'Minify the result')
   .action(function(dir, options) {
     watch(dir, options)
       .catch(function(err) {

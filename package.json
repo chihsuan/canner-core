@@ -1,6 +1,6 @@
 {
   "name": "canner-core",
-  "version": "0.2.8",
+  "version": "0.2.9",
   "description": "A static webpage generator based on template engines, which aimed to deal with the maintenance difficulty between data and webpages.",
   "main": "index.js",
   "bin": {
@@ -36,6 +36,7 @@
     "handlebars": "^4.0.0",
     "hbs-extract": "^0.1.0",
     "hbs-helper": "0.0.5",
+    "html-minifier": "^1.0.0",
     "http-server": "^0.8.0",
     "jade": "^1.9.1",
     "js-beautify": "^1.5.4",
