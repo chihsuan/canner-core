@@ -1,6 +1,6 @@
 {
   "name": "canner-core",
-  "version": "0.2.9",
+  "version": "0.3.0",
   "description": "A static webpage generator based on template engines, which aimed to deal with the maintenance difficulty between data and webpages.",
   "main": "index.js",
   "bin": {
@@ -30,6 +30,7 @@
     "chalk": "^1.0.0",
     "colors": "1.0.3",
     "commander": "^2.2.0",
+    "contextify": "^0.1.15",
     "dustjs-linkedin": "^2.5.1",
     "file-save": "^0.2.0",
     "fs-extra": "^0.12.0",
