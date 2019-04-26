@@ -1,7 +1,7 @@
 var _ = require('lodash');
 var prog = require('commander');
 var fileSave = require('file-save');
-var allin_html = require('allin');
+var allin_html;
 var path = require('path');
 var Q = require('q');
 
