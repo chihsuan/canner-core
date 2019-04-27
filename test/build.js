@@ -380,22 +380,16 @@ describe('build using object', function() {
         beforeSave: function(build, ok) {
           var window = new JSDOM(build);
           const document = window.window.document;
-          
-          let scriptElement=document.createElement("script");
-          scriptElement.setAttribute("class","jsdom");
-          scriptElement.setAttribute("src","http://code.jquery.com/jquery-2.1.1.js");
-          document.body.appendChild(scriptElement);
+          let scriptElement=document.createElement('script');
+          let TextElement=document.createElement('div');
 
-          let TextElement=document.createElement("div");
-          TextElement.setAttribute("class","testing");
-          TextElement.innerHTML=`Hello World, It works`;
+          scriptElement.setAttribute('class','jsdom');
+          scriptElement.setAttribute('src','http://code.jquery.com/jquery-2.1.1.js');
+          document.body.appendChild(scriptElement);
+          TextElement.setAttribute('class','testing');
+          TextElement.innerHTML='Hello World, It works';
           document.body.appendChild(TextElement);
-          //document.body.append(`<scriptclass="jsdom"src="http://code.jquery.com/jquery-2.1.1.js">`)
-          //document.body.append('<div class="testing">Hello World, It works</div>');
-          //jsdom.jQueryify(window, "http://code.jquery.com/jquery-2.1.1.js", function() {
-          //  window.$("body").append('<div class="testing">Hello World, It works</div>');
-            ok(document.documentElement.outerHTML);
-          //});
+          ok(document.documentElement.outerHTML);
         }
       })
       .done(function() {
