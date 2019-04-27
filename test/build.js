@@ -443,7 +443,6 @@ describe('build using object', function() {
         }
       })
       .done(function(html) {
-
         var result = fs.readFileSync(__dirname + '/blog/opendata/post/2015/08/03/test-post.html', {
           encoding: 'utf8'
         }).replace(/\s+/g, '');
