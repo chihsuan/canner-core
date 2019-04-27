@@ -377,20 +377,20 @@ describe('build using object', function() {
           "title": "wwwy3y3",
           "items": "item wwwy3y3"
         },
-        beforeSave: function(build, ok) {
-          const window = new JSDOM(build).window;
-          let document = window.document;
-          let scriptElement = document.createElement('script');
-          let TextElement = document.createElement('div');
+        beforeSave: function (build, ok) {
+          const { window } = { window: new JSDOM(build).window };
+          const { document } = { document: window.document };
+          const scriptElement = document.createElement('script');
+          const TextElement = document.createElement('div');
 
           scriptElement.setAttribute('class', 'jsdom');
           scriptElement.setAttribute('src', 'http://code.jquery.com/jquery-2.1.1.js');
-          document.body.appendChild(scriptElement);
           TextElement.setAttribute('class', 'testing');
           TextElement.innerHTML = 'Hello World, It works';
+          document.body.appendChild(scriptElement);
           document.body.appendChild(TextElement);
           ok(document.documentElement.outerHTML);
-        }
+        },
       })
       .done(function() {
         var result = fs.readFileSync(__dirname + '/result/hbs_jsdom.html', {
