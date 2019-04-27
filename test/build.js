@@ -378,16 +378,16 @@ describe('build using object', function() {
           "items": "item wwwy3y3"
         },
         beforeSave: function(build, ok) {
-          var window = new JSDOM(build);
-          const document = window.window.document;
-          let scriptElement=document.createElement('script');
-          let TextElement=document.createElement('div');
+          const window = new JSDOM(build).window;
+          let document = window.document;
+          let scriptElement = document.createElement('script');
+          let TextElement = document.createElement('div');
 
-          scriptElement.setAttribute('class','jsdom');
-          scriptElement.setAttribute('src','http://code.jquery.com/jquery-2.1.1.js');
+          scriptElement.setAttribute('class', 'jsdom');
+          scriptElement.setAttribute('src', 'http://code.jquery.com/jquery-2.1.1.js');
           document.body.appendChild(scriptElement);
-          TextElement.setAttribute('class','testing');
-          TextElement.innerHTML='Hello World, It works';
+          TextElement.setAttribute('class', 'testing');
+          TextElement.innerHTML = 'Hello World, It works';
           document.body.appendChild(TextElement);
           ok(document.documentElement.outerHTML);
         }
