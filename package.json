@@ -1,6 +1,6 @@
 {
   "name": "canner-core",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "A static webpage generator based on template engines, which aimed to deal with the maintenance difficulty between data and webpages.",
   "main": "index.js",
   "bin": {
@@ -60,7 +60,7 @@
     "eslint-plugin-import": "^2.17.2",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.12.4",
-    "mocha": "^2.5.3",
+    "mocha": "^6.1.4",
     "should": "^7.1.0",
     "string-stream": "0.0.7"
   }
