@@ -41,7 +41,7 @@
     "js-beautify": "^1.9.1",
     "jsdom": "^15.0.0",
     "lodash": "^4.17.11",
-    "marked": "^0.6.2",
+    "marked": "^4.0.10",
     "mustache": "^3.0.1",
     "node-stage": "^0.1.2",
     "npm": "^6.9.0",
